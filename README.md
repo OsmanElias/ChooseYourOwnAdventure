@@ -3,3 +3,5 @@ Node.js app that allows a user to create an account and interact with adventure 
 
 Current development:
 Looking to setup basic files and begin working with the database.
+
+Using Mongo 6.X
