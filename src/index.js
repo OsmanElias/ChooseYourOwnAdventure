@@ -39,7 +39,7 @@ app.post("/signup",async (req,res)=>{ //Working with async here
     await collection.insertMany([data]) //fills collection 
     
     res.render("home")
-    
+
 
 })
 
