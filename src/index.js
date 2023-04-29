@@ -6,7 +6,7 @@ const collection = require("./mongodb")
 
 
 
-const templatePath = path.join(__dirname, '../src/templates');
+const templatePath = path.join(__dirname, '../templates');
 
 
 
