@@ -5,14 +5,15 @@ const hbs = require("hbs") //for hbs files
 const collection = require("./mongodb")
 
 
-const tempelatePath = path.join(__dirname,'../templates') 
+
+const templatePath = path.join(__dirname, '../src/templates');
 
 
 
 app.use(express.json()) //To get hbs files
 app.set("view engine", "hbs") //Our view engine will be hbs
 app.set("views",templatePath) //For the looks
-
+app.use(express.urlencoded({extended:false}))
 
 app.get("/",(req,res)=>{     //Get for login this is the homepage
     res.render("login")

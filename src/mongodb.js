@@ -1,6 +1,6 @@
 const mongoose = require ("mongoose")
 
-mongoose.connect("mongodb://localhost:8080/ChooseAdventure")
+mongoose.connect("mongodb://localhost:27017/ChooseAdventure")
 .then(()=>{
     console.log("Connected to database!");
 })
