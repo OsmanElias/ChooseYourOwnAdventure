@@ -20,6 +20,21 @@ app.get("/signup", (req, res) => {
   res.render("signup");
 });
 
+app.get("/quiz", (req, res) => {
+  res.render("quiz");
+});
+
+app.get("/quizTwo", (req, res) => {
+res.render("quizTwo");
+});
+
+app.get("/quizThree", (req, res) => {
+  res.render("quizThree");
+  });
+  
+
+  
+
 app.post("/signup", async (req, res) => {
   const data = {
     name: req.body.name,
@@ -28,7 +43,7 @@ app.post("/signup", async (req, res) => {
 
   try {
     await collection.create(data);
-    res.render("home");
+    res.render("quiz");
   } catch (error) {
     console.error("Error inserting data:", error);
     res.status(500).send("Error inserting data");
@@ -45,10 +60,11 @@ app.post("/login", async (req, res) => {
       res.send("Password is incorrect");
     }
   } catch {
-    res.send("Error");
+    res.send("No Account found");
   }
 });
 
 app.listen(3000, () => {
   console.log("Connection made");
 });
+
