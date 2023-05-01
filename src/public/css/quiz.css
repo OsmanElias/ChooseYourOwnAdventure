@@ -1,4 +1,7 @@
 body {
+    background-image: url("quiz.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
