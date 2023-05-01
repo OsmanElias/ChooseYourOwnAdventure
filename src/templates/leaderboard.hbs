@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Leaderboard</title>
+</head>
+<body>
+  <h1>Leaderboard</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each scores}}
+        <tr>
+          <td>{{@index}}</td>
+          <td>{{this.name}}</td>
+          <td>{{this.score}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <script src="javascript/leaderboard.js"></script>
+</body>
+</html>
