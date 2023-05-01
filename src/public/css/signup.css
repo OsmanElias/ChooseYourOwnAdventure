@@ -1,4 +1,7 @@
 body {
+    background-image: url("signup.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;

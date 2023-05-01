@@ -131,80 +131,94 @@ const quiz = [
     }
   ];
   
-  
-   const quizContainer = document.getElementById("quiz-container");
-  
-  
-    function displayQuiz() {
-    // loop through the quiz array and create HTML elements to display each question and its choices
-    console.log("displayQuiz() function called");
-    for (let i = 0; i < quiz.length; i++) {
-      // create a div element to hold the question and its choices
-      const questionDiv = document.createElement("div");
-      questionDiv.classList.add("question");
-  
-      // create a p element to display the question text
-      const questionText = document.createElement("p");
-      questionText.innerText = quiz[i].question;
-      questionDiv.appendChild(questionText);
-  
-      // loop through the choices array
-      const choices = quiz[i].choices;
-      for (let j = 0; j < choices.length; j++) {
-        // create a label element for the choice
-        const choiceLabel = document.createElement("label");
-        choiceLabel.classList.add("choice");
-  
-        // create a radio button element for the choice
-        const choiceInput = document.createElement("input");
-        choiceInput.setAttribute("type", "radio");
-        choiceInput.setAttribute("name", "question-" + i);
-        choiceInput.setAttribute("value", choices[j].points);
-        choiceLabel.appendChild(choiceInput);
-  
-        // create a span element to display the choice text
-        const choiceText = document.createElement("span");
-        choiceText.innerText = choices[j].text;
-        choiceLabel.appendChild(choiceText);
-  
-        // add the choice to the question div
-        questionDiv.appendChild(choiceLabel);
-      }
-  
-      // add the question div to the quiz container
-      quizContainer.appendChild(questionDiv);
-    }
-  
-    // create a submit button to submit the quiz
-    const submitButton = document.createElement("button");
-    submitButton.innerText = "Submit Quiz";
-    submitButton.addEventListener("click", submitQuiz);
-    quizContainer.appendChild(submitButton);
+  const quizContainer = document.getElementById("quiz-container");
+const nextButton = document.createElement("button");
+nextButton.innerText = "Next";
+nextButton.addEventListener("click", onNextButtonClick);
+
+let currentQuestionIndex = 0;
+const selectedChoices = {};
+
+function displayCurrentQuestion() {
+  const currentQuestion = quiz[currentQuestionIndex];
+  const questionDiv = document.createElement("div");
+  questionDiv.classList.add("question");
+
+  // create a p element to display the question text
+  const questionText = document.createElement("p");
+  questionText.innerText = currentQuestion.question;
+  questionDiv.appendChild(questionText);
+
+  // loop through the choices array
+  const choices = currentQuestion.choices;
+  for (let j = 0; j < choices.length; j++) {
+    // create a label element for the choice
+    const choiceLabel = document.createElement("label");
+    choiceLabel.classList.add("choice");
+
+    // create a radio button element for the choice
+    const choiceInput = document.createElement("input");
+    choiceInput.setAttribute("type", "radio");
+    choiceInput.setAttribute("name", "question-" + currentQuestionIndex);
+    choiceInput.setAttribute("value", choices[j].points);
+    choiceLabel.appendChild(choiceInput);
+
+    // create a span element to display the choice text
+    const choiceText = document.createElement("span");
+    choiceText.innerText = choices[j].text;
+    choiceLabel.appendChild(choiceText);
+
+    // add the choice to the question div
+    questionDiv.appendChild(choiceLabel);
   }
-  
-  function submitQuiz() {
-    // get all the selected choices
-    const selectedChoices = quiz.reduce((accumulator, currentQuestion, questionIndex) => {
-      const choiceInputs = document.getElementsByName("question-" + questionIndex);
-      const selectedInput = Array.from(choiceInputs).find(choiceInput => choiceInput.checked);
-      if (selectedInput) {
-        accumulator[currentQuestion.question] = parseInt(selectedInput.value);
+
+  // add the question div and next button to the quiz container
+  quizContainer.innerHTML = "";
+  quizContainer.appendChild(questionDiv);
+  quizContainer.appendChild(nextButton);
+}
+
+function onNextButtonClick() {
+  // get the selected choice for the current question
+  const choiceInputs = document.getElementsByName("question-" + currentQuestionIndex);
+  const selectedInput = Array.from(choiceInputs).find(choiceInput => choiceInput.checked);
+  if (selectedInput) {
+    // add the selected choice to the total points
+    const selectedPoints = parseInt(selectedInput.value);
+    if (!isNaN(selectedPoints)) {
+      if (!selectedChoices[currentQuestionIndex]) {
+        selectedChoices[currentQuestionIndex] = 0;
       }
-      return accumulator;
-    }, {});
-  
+      selectedChoices[currentQuestionIndex] += selectedPoints;
+    }
+  }
+
+  // increment the current question index
+  currentQuestionIndex++;
+
+  if (currentQuestionIndex < quiz.length) {
+    // display the next question
+    displayCurrentQuestion();
+  } else {
     // calculate the total points
     const totalPoints = Object.values(selectedChoices).reduce((accumulator, currentPoints) => accumulator + currentPoints, 0);
-  
+
     // display the results
     quizContainer.innerHTML = "";
     const resultMessage = document.createElement("p");
     if (totalPoints >= 5) {
-      resultMessage.innerText = "Congratulations! You survived the desert island!";
+      resultMessage.innerText = "Congratulations! You survived the haunted adventure!";
     } else {
-      resultMessage.innerText = "Oh no! You didn't survive the desert island!";
+      resultMessage.innerText = "Oh no! You didn't survive the haunted adventure.";
     }
     quizContainer.appendChild(resultMessage);
   }
+}
+
+function displayQuiz() {
+  displayCurrentQuestion();
   
-  
+}
+
+// initialize the quiz
+displayQuiz();
