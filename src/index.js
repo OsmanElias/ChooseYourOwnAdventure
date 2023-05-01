@@ -33,7 +33,7 @@ app.get("/quizThree", (req, res) => {
   });
   
 
-  
+
 
 app.post("/signup", async (req, res) => {
   const data = {
@@ -43,7 +43,7 @@ app.post("/signup", async (req, res) => {
 
   try {
     await collection.create(data);
-    res.render("quiz");
+    res.render("home");
   } catch (error) {
     console.error("Error inserting data:", error);
     res.status(500).send("Error inserting data");
