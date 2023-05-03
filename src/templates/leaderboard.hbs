@@ -1,30 +1,21 @@
-<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>Leaderboard</title>
-</head>
-<body>
-  <h1>Leaderboard</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Rank</th>
-        <th>Name</th>
-        <th>Score</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each scores}}
+  <head>
+    <title>Quiz Leaderboard</title>
+  </head>
+  <body>
+    <h1>Quiz Leaderboard</h1>
+    <table>
+      <thead>
         <tr>
-          <td>{{@index}}</td>
-          <td>{{this.name}}</td>
-          <td>{{this.score}}</td>
+          <th>Rank</th>
+          <th>Name</th>
+          <th>Score</th>
         </tr>
-      {{/each}}
-    </tbody>
-  </table>
-
+      </thead>
+      <tbody id="leaderboard">
+        <!-- scores will be inserted here -->
+      </tbody>
+    </table>
+  </body>
   <script src="javascript/leaderboard.js"></script>
-</body>
 </html>

@@ -1,14 +1,19 @@
+/**All quiz.js files are used to generate the questions and a quiz with answers and responses
+ * Osman Elias
+ * Section 8
+ */
+
 const quiz = [
     {
       question: "You hear a strange noise coming from the hallway. Do you investigate?",
       choices: [
         {
           text: "Yes",
-          points: 1
+          points: -1
         },
         {
           text: "No",
-          points: -1
+          points: 1
         }
       ]
     },
@@ -43,16 +48,16 @@ const quiz = [
       choices: [
         {
           text: "Yes",
-          points: 1
+          points: -1
         },
         {
           text: "No",
-          points: -1
+          points: 1
         }
       ]
     },
     {
-      question: "The book contains an incantation. Do you say it aloud?",
+      question: "The book opens anyways and contains an incantation. Do you say it aloud?",
       choices: [
         {
           text: "Yes",
@@ -69,11 +74,11 @@ const quiz = [
       choices: [
         {
           text: "Yes",
-          points: 1
+          points: -1
         },
         {
           text: "No",
-          points: -1
+          points: 1
         }
       ]
     },
@@ -108,11 +113,11 @@ const quiz = [
       choices: [
         {
           text: "Yes",
-          points: 1
+          points: -1
         },
         {
           text: "No",
-          points: -1
+          points: 1
         }
       ]
     },
@@ -136,7 +141,7 @@ const quiz = [
    
 
 
-
+//Function to loop through the questions and create a quiz
   const quizContainer = document.getElementById("quiz-container");
 const nextButton = document.createElement("button");
 nextButton.innerText = "Next";

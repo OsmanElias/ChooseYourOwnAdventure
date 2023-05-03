@@ -3,9 +3,10 @@
  * Section 8
  */
 
+
 const quiz = [
     {
-      question: "You enter a forest. Do you follow the path?",
+      question: "You're an adventurer exploring a lost city in the jungle. You come to a fork in the path. Do you go left?",
       choices: [
         {
           text: "Yes",
@@ -18,7 +19,7 @@ const quiz = [
       ]
     },
     {
-      question: "You come across a river. Do you cross it?",
+      question: "You come across a temple with a locked door. Do you pick try to pick it?",
       choices: [
         {
           text: "Yes",
@@ -31,7 +32,7 @@ const quiz = [
       ]
     },
     {
-      question: "You find a map. Do you use it?",
+      question: "You successfully pick the lock and enter the temple. Do you search for treasure?",
       choices: [
         {
           text: "Yes",
@@ -44,7 +45,7 @@ const quiz = [
       ]
     },
     {
-      question: "You see an abandoned cabin. Do you enter?",
+      question: "You hear noises in the mist of all this chaos, do you investigate?",
       choices: [
         {
           text: "Yes",
@@ -57,20 +58,20 @@ const quiz = [
       ]
     },
     {
-      question: "You hear whispers. Do you investigate?",
+      question: "You find yourself face-to-face with a tribe of angry natives, what do you do",
       choices: [
         {
-          text: "Yes",
+          text: "RUN",
           points: 1
         },
         {
-          text: "No",
+          text: "FIGHT",
           points: -1
         }
       ]
     },
     {
-      question: "You see a strange light in the distance. Do you follow it?",
+      question: "Either way the natives attack you, you are hurt but you see a tunnel do you crawl through?",
       choices: [
         {
           text: "Yes",
@@ -96,7 +97,7 @@ const quiz = [
       ]
     },
     {
-      question: "You find an old compass. Do you use it?",
+      question: "These people say they know a way out do you listen?",
       choices: [
         {
           text: "Yes",
@@ -188,9 +189,9 @@ const quiz = [
       quizContainer.innerHTML = "";
       const resultMessage = document.createElement("p");
       if (totalPoints >= 5) {
-        resultMessage.innerText = "Congratulations! You survived the haunted adventure!";
+        resultMessage.innerText = "Congratulations! You survived the Lost City!";
       } else {
-        resultMessage.innerText = "Oh no! You didn't survive the haunted adventure.";
+        resultMessage.innerText = "Oh no! You didn't survive the Lost City";
       }
       quizContainer.appendChild(resultMessage);
     }

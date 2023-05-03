@@ -3,9 +3,75 @@
  * Section 8
  */
 
+
 const quiz = [
     {
-      question: "You enter a forest. Do you follow the path?",
+      question: "You've been stranded at sea for days and are feeling very thirsty. Do you drink seawater to quench your thirst?",
+      choices: [
+        {
+          text: "Yes",
+          points: -1
+        },
+        {
+          text: "No",
+          points: 1
+        }
+      ]
+    },
+    {
+      question: "You see a group of birds circling in the sky. Do you use them as a sign of land and follow their flight path?",
+      choices: [
+        {
+          text: "Yes",
+          points: -1
+        },
+        {
+          text: "No",
+          points: 1
+        }
+      ]
+    },
+    {
+      question: "You find a plastic bag floating in the water. Do you use it to collect drinking water?",
+      choices: [
+        {
+          text: "Yes",
+          points: -1
+        },
+        {
+          text: "No",
+          points: 1
+        }
+      ]
+    },
+    {
+      question: "You're feeling hungry and see some fish swimming nearby. Do you catch and eat them raw?",
+      choices: [
+        {
+          text: "Yes",
+          points: -1
+        },
+        {
+          text: "No",
+          points: 1
+        }
+      ]
+    },
+    {
+      question: "You're cold and wet, and see some dry clothes on the shore. Do you swim to shore to get them?",
+      choices: [
+        {
+          text: "Yes",
+          points: -1
+        },
+        {
+          text: "No",
+          points: 1
+        }
+      ]
+    },
+    {
+      question: "You're feeling tired and see some seaweed floating in the water. Do you use it as a makeshift mattress?",
       choices: [
         {
           text: "Yes",
@@ -18,7 +84,7 @@ const quiz = [
       ]
     },
     {
-      question: "You come across a river. Do you cross it?",
+      question: "You see a passing ship in the distance. Do you try to signal it for help?",
       choices: [
         {
           text: "Yes",
@@ -31,86 +97,20 @@ const quiz = [
       ]
     },
     {
-      question: "You find a map. Do you use it?",
+      question: "A strange man help you aboard do you kill him or accept his hospitality",
       choices: [
         {
-          text: "Yes",
+          text: "KILL HIM :D",
           points: 1
         },
         {
-          text: "No",
-          points: -1
-        }
-      ]
-    },
-    {
-      question: "You see an abandoned cabin. Do you enter?",
-      choices: [
-        {
-          text: "Yes",
-          points: 1
-        },
-        {
-          text: "No",
-          points: -1
-        }
-      ]
-    },
-    {
-      question: "You hear whispers. Do you investigate?",
-      choices: [
-        {
-          text: "Yes",
-          points: 1
-        },
-        {
-          text: "No",
-          points: -1
-        }
-      ]
-    },
-    {
-      question: "You see a strange light in the distance. Do you follow it?",
-      choices: [
-        {
-          text: "Yes",
-          points: 1
-        },
-        {
-          text: "No",
-          points: -1
-        }
-      ]
-    },
-    {
-      question: "You encounter a group of people. Do you join them?",
-      choices: [
-        {
-          text: "Yes",
-          points: 1
-        },
-        {
-          text: "No",
-          points: -1
-        }
-      ]
-    },
-    {
-      question: "You find an old compass. Do you use it?",
-      choices: [
-        {
-          text: "Yes",
-          points: 1
-        },
-        {
-          text: "No",
+          text: "Or don't.",
           points: -1
         }
       ]
     }
   ];
   
-
   //Function to loop through the questions and create a quiz
   const quizContainer = document.getElementById("quiz-container");
   const nextButton = document.createElement("button");
@@ -188,9 +188,9 @@ const quiz = [
       quizContainer.innerHTML = "";
       const resultMessage = document.createElement("p");
       if (totalPoints >= 5) {
-        resultMessage.innerText = "Congratulations! You survived the haunted adventure!";
+        resultMessage.innerText = "Congratulations! You lived to see another day!";
       } else {
-        resultMessage.innerText = "Oh no! You didn't survive the haunted adventure.";
+        resultMessage.innerText = "Oh no! Shouldve killed him my fellow sailor! He was a serial killer and a cannibal!";
       }
       quizContainer.appendChild(resultMessage);
     }

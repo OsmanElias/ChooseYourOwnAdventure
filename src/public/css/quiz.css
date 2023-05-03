@@ -1,60 +1,88 @@
 body {
-    background-image: url("quiz.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f2f2f2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
+  background-image: url("quiz.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
-  #quiz-container {
-    background-color: #ffffff;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
-    max-width: 600px;
-    padding: 20px;
-  }
+#quiz-container {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
 
-  .question {
-    margin-bottom: 20px;
-  }
-  
-  .choice {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  input[type="radio"] {
-    margin-right: 10px;
-  }
-  
-  button {
-    display: block;
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #2980b9;
-  }
-  
-  p.result {
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 20px;
-  }
+.question {
+  margin-bottom: 20px;
+}
 
-  
+.choice {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+button {
+  display: block;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+p.result {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.back-btn {
+  display: flex;
+  padding: 10px;
+  background-color: #fff;
+  color: #3498db;
+  border: 2px solid #3498db;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+.back-btn:hover {
+  background-color: #3498db;
+  color: #fff;
+}

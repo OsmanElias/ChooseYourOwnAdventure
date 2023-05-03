@@ -1,3 +1,9 @@
+/**All quiz.js files are used to generate the questions and a quiz with answers and responses
+ * Osman Elias
+ * Section 8
+ */
+
+
 const quiz = [
     {
       question: "You wash up on a desert island. Do you search for food and water?",
@@ -131,6 +137,8 @@ const quiz = [
     }
   ];
   
+
+  //Function to loop through the questions and create a quiz
   const quizContainer = document.getElementById("quiz-container");
 const nextButton = document.createElement("button");
 nextButton.innerText = "Next";
@@ -207,9 +215,9 @@ function onNextButtonClick() {
     quizContainer.innerHTML = "";
     const resultMessage = document.createElement("p");
     if (totalPoints >= 5) {
-      resultMessage.innerText = "Congratulations! You survived the haunted adventure!";
+      resultMessage.innerText = "Congratulations! You survived the island";
     } else {
-      resultMessage.innerText = "Oh no! You didn't survive the haunted adventure.";
+      resultMessage.innerText = "Oh no! You didn't survive the island.";
     }
     quizContainer.appendChild(resultMessage);
   }

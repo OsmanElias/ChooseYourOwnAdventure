@@ -1,12 +1,20 @@
+/**
+ * Osman Elias
+ * Section 8
+ * 
+ * 
+ * This file is used to setup a leaderboard using the mongoDB schema, currently still not working!
+ */
+
+
+
+
+
 const quizScoreCollection = require("./mongodb").QuizScore;
 
-// Get the name and score from the user input or from the quiz script
 const score = 10;
+const loggedInUser = req.params.name; // retrieve user name from parameter
 
-// Get the name of the logged in user from the session
-const loggedInUser = req.session.user;
-
-// Create a new document in the quizScoreCollection collection
 quizScoreCollection.create({
   name: loggedInUser,
   score: score
@@ -15,3 +23,14 @@ quizScoreCollection.create({
 }).catch(error => {
   console.error("Error adding score to leaderboard:", error)
 })
+
+
+QuizScore.find()
+  .sort({ score: -1 })
+  .limit(10)
+  .then((scores) => {
+    console.log(scores);
+  })
+  .catch((err) => {
+    console.error("Error getting scores", err);
+  });
